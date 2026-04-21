@@ -4,15 +4,16 @@ export function SubmitComment({postid,updateComments}){
     const handleSubmit = async (e) => {
         e.preventDefault(); // stop default form submission
         // manually send data
+        const token = localStorage.getItem("token");
         const response = await fetch(`http://localhost:3000/posts/${postid}/comments`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({
             content: comment,
             post_id: postid,
-            user_id: 1 //change later to logged in user
         })
         });
         if (!response.ok) {

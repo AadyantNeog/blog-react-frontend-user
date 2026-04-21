@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Post } from './components/Post';
+import { Post } from './Post';
 
 function useGetAllPosts(){
     const [data, setData] = useState(null);
@@ -25,7 +25,7 @@ function useGetAllPosts(){
     return {data,error,loading}
 }
 
-function App() {
+export function AllPosts() {
     const {data, error, loading} = useGetAllPosts();
 
     if(loading){
@@ -43,5 +43,3 @@ function App() {
         </>
     )
 }
-
-export default App
