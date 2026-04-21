@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Post } from './Post';
+import { Link } from 'react-router';
 
 function useGetAllPosts(){
     const [data, setData] = useState(null);
@@ -38,8 +39,9 @@ export function AllPosts() {
         return <Post key={p.id} id={p.id} user_id={p.user_id} title={p.title} content={null} created_at={p.created_at}/>
     })
     return(
-        <>
+        <div className='AllPosts'>
+            <Link to="/post">POST SOMETHING</Link>
             {posts}
-        </>
+        </div>
     )
 }

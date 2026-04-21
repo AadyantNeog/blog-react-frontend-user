@@ -25,7 +25,7 @@ export function SubmitComment({postid,updateComments}){
         setComment("")
     };
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="SubmitComment">
             <div>Write a comment</div>
             <textarea value={comment} name="commentContent" onChange={(e) => setComment(e.target.value)}></textarea>
             <button type="submit">submit comment</button>

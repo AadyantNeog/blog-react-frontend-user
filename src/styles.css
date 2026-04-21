@@ -1,0 +1,136 @@
+/* General page styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #ff6f91;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6a82fb;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(45deg, #ff6f91, #ff9472);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Forms */
+form {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 2rem auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff6f91;
+    box-shadow: 0 0 8px rgba(255, 111, 145, 0.4);
+}
+
+/* Posts */
+.AllPosts, .PostPage {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.post {
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.post h3 {
+    margin-top: 0;
+    color: #6a82fb;
+}
+
+.post p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Comments */
+.Comment {
+    background: rgba(255,255,255,0.8);
+    border-left: 4px solid #ff6f91;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+/* Login & SignUp Forms */
+.LoginForm, .SignUpForm, .PostForm {
+    text-align: left;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    form {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}

@@ -62,7 +62,7 @@ export function PostPage(){
     return(
         
         <div className="PostPage">
-            <Link to="/">Go back</Link>
+            <Link to="/posts">Go back</Link>
             <Post id={post.id} user_id={post.user_id} title={post.title} content={post.content} created_at={post.created_at} />
             {allComments}
             <SubmitComment postid={postid} updateComments={(comment) => setComments(prev => [...prev,comment])} />

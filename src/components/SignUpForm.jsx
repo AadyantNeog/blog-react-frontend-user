@@ -34,7 +34,7 @@ export function SignUpForm(){
     }
 }
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="SignUpForm">
             <label for="password">ENTER PASSWORD: </label>
             <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br />

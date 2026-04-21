@@ -24,7 +24,7 @@ export function LoginForm(){
         }
     }
     return(
-        <div>
+        <div className="LoginForm">
             <form onSubmit={handleSubmit}>
                 <label for="password">ENTER PASSWORD: </label>
                 <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
