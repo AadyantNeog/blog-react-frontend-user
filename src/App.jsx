@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Post } from './Components';
+import { Post } from './components/Post';
 
 function useGetAllPosts(){
     const [data, setData] = useState(null);
@@ -35,7 +35,7 @@ function App() {
         return <p>Network Error</p>
     }
     const posts = data.map((p) => {
-        return <Post key={p.id} user_id={p.user_id} title={p.title} content={p.content} created_at={p.created_at}/>
+        return <Post key={p.id} id={p.id} user_id={p.user_id} title={p.title} content={null} created_at={p.created_at}/>
     })
     return(
         <>
