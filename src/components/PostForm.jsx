@@ -43,29 +43,38 @@ export function PostForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="PostForm">
-            <label htmlFor="title">Title:</label>
-            <input
-                id="title"
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-            />
-            <br />
+        <div className="post-form-page page-shell">
+            <header className="masthead compact">
+                <div className="eyebrow">Editorial Desk</div>
+                <h1 className="masthead-title">File a New Story</h1>
+                <div className="masthead-meta">
+                    <span>Draft a headline and publish it to the front page</span>
+                </div>
+            </header>
 
-            <label htmlFor="content">Content:</label>
-            <textarea
-                id="content"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                required
-            />
-            <br />
+            <form onSubmit={handleSubmit} className="PostForm auth-form">
+                <div className="form-heading">Story Submission</div>
+                <label htmlFor="title">Headline</label>
+                <input
+                    id="title"
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                />
 
-            <button type="submit" disabled={loading}>
-                {loading ? "Posting..." : "Create Post"}
-            </button>
-        </form>
+                <label htmlFor="content">Article body</label>
+                <textarea
+                    id="content"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    required
+                />
+
+                <button type="submit" disabled={loading}>
+                    {loading ? "Sending to print..." : "Publish story"}
+                </button>
+            </form>
+        </div>
     );
 }

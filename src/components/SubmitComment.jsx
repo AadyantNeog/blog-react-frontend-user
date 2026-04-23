@@ -37,11 +37,12 @@ export function SubmitComment({postid,updateComments}){
     };
     return(
         <form onSubmit={handleSubmit} className="SubmitComment">
-            <div>Write a comment</div>
-            <textarea value={comment} name="commentContent" onChange={(e) => setComment(e.target.value)}></textarea>
-            {error ? <p>{error}</p> : null}
+            <div className="form-heading">Submit a response</div>
+            <label htmlFor="commentContent">Commentary</label>
+            <textarea id="commentContent" value={comment} name="commentContent" onChange={(e) => setComment(e.target.value)}></textarea>
+            {error ? <p className="form-error">{error}</p> : null}
             <button type="submit" disabled={submitting}>
-                {submitting ? "submitting..." : "submit comment"}
+                {submitting ? "Sending..." : "Publish comment"}
             </button>
         </form>
     )

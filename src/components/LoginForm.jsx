@@ -24,16 +24,26 @@ export function LoginForm(){
         }
     }
     return(
-        <div className="LoginForm">
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="password">ENTER PASSWORD: </label>
+        <div className="LoginForm auth-page page-shell">
+            <header className="masthead compact">
+                <div className="eyebrow">Morning Briefing</div>
+                <h1 className="masthead-title">Sign In to the News Desk</h1>
+                <div className="masthead-meta">
+                    <span>Access today's posts and discussions</span>
+                </div>
+            </header>
+
+            <form onSubmit={handleSubmit} className="auth-form">
+                <div className="form-heading">Edition Access</div>
+                <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <br />
-                <label htmlFor="email">ENTER EMAIL: </label>
+                <label htmlFor="email">Email</label>
                 <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <button type="submit">SUBMIT</button>
+                <button type="submit">Enter newsroom</button>
             </form>
-            <Link to="/signup">Dont have an account then sign up</Link>
+            <p className="auth-link-row">
+                New here? <Link className="inline-link" to="/signup">Create an account</Link>
+            </p>
         </div>
         
     )

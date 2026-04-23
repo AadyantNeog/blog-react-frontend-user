@@ -30,18 +30,36 @@ export function AllPosts() {
     const {data, error, loading} = useGetAllPosts();
 
     if(loading){
-        return <p>Loading</p>
+        return <div className="status-panel">Loading latest edition...</div>
     }
     if(error){
-        return <p>Network Error</p>
+        return <div className="status-panel">Unable to load the front page.</div>
     }
     const posts = data.map((p) => {
         return <Post key={p.id} id={p.id} user_id={p.user_id} title={p.title} content={null} created_at={p.created_at}/>
     })
     return(
-        <div className='AllPosts'>
-            <Link to="/post">POST SOMETHING</Link>
+        <div className='AllPosts page-shell'>
+            <header className="masthead">
+                <div className="eyebrow">Daily Edition</div>
+                <h1 className="masthead-title">The React Chronicle</h1>
+                <div className="masthead-meta">
+                    <span>Independent Web Dispatch</span>
+                    <span>All the posts worth reading</span>
+                </div>
+            </header>
+
+            <section className="section-bar">
+                <div>
+                    <div className="section-label">Top Stories</div>
+                    <p className="section-copy">Fresh entries from the editorial desk.</p>
+                </div>
+                <Link className="button-link" to="/post">File a new story</Link>
+            </section>
+
+            <section className="posts-grid">
             {posts}
+            </section>
         </div>
     )
 }

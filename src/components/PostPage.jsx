@@ -62,16 +62,18 @@ export function PostPage(){
     }, [postid]);
     
     if(loading){
-        return <p>Loading</p>
+        return <div className="status-panel">Preparing article...</div>
     }
     if(error){
-        return <p>Network Error</p>
+        return <div className="status-panel">Unable to load this article.</div>
     }
     if(notFound){
         return (
-            <div className="PostPage">
-                <Link to="/posts">Go back</Link>
-                <p>Post not found.</p>
+            <div className="PostPage page-shell">
+                <header className="article-header">
+                    <Link className="inline-link" to="/posts">Back to front page</Link>
+                    <p className="empty-state">Post not found.</p>
+                </header>
             </div>
         )
     }
@@ -80,11 +82,26 @@ export function PostPage(){
     })
     return(
         
-        <div className="PostPage">
-            <Link to="/posts">Go back</Link>
-            <Post id={post.id} user_id={post.user_id} title={post.title} content={post.content} created_at={post.created_at} />
-            {allComments}
-            <SubmitComment postid={postid} updateComments={(comment) => setComments(prev => [...prev,comment])} />
+        <div className="PostPage page-shell">
+            <header className="article-header">
+                <div className="eyebrow">Article Archive</div>
+                <Link className="inline-link" to="/posts">Back to front page</Link>
+            </header>
+
+            <div className="article-layout">
+                <main className="article-main">
+                    <Post id={post.id} user_id={post.user_id} title={post.title} content={post.content} created_at={post.created_at} />
+                </main>
+
+                <aside className="article-sidebar">
+                    <div className="section-label">Letters & Responses</div>
+                    <p className="section-copy">Reader commentary on the story.</p>
+                    <div className="comments-stack">
+                        {allComments.length > 0 ? allComments : <p className="empty-state">No comments yet.</p>}
+                    </div>
+                    <SubmitComment postid={postid} updateComments={(comment) => setComments(prev => [...prev,comment])} />
+                </aside>
+            </div>
         </div>
     )
 }

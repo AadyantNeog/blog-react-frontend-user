@@ -34,16 +34,25 @@ export function SignUpForm(){
     }
 }
     return(
-        <form onSubmit={handleSubmit} className="SignUpForm">
-            <label htmlFor="password">ENTER PASSWORD: </label>
-            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <br />
-            <label htmlFor="email">ENTER EMAIL: </label>
-            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <br />
-            <label htmlFor="username">ENTER USERNAME: </label>
-            <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <button type="submit">SUBMIT</button>
-        </form>
+        <div className="auth-page page-shell">
+            <header className="masthead compact">
+                <div className="eyebrow">Subscriber Services</div>
+                <h1 className="masthead-title">Open a New Account</h1>
+                <div className="masthead-meta">
+                    <span>Create your reader profile</span>
+                </div>
+            </header>
+
+            <form onSubmit={handleSubmit} className="SignUpForm auth-form">
+                <div className="form-heading">Registration Form</div>
+                <label htmlFor="password">Password</label>
+                <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <label htmlFor="username">Username</label>
+                <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                <button type="submit">Create account</button>
+            </form>
+        </div>
     )
 }
