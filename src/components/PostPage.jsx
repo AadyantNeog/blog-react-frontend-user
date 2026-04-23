@@ -78,7 +78,7 @@ export function PostPage(){
         )
     }
     const allComments = comments.map((c) => {
-        return <Comment key={c.id} user_id={c.user_id} content={c.content} created_at={c.created_at} />
+        return <Comment key={c.id} username={c.username} content={c.content} created_at={c.created_at} />
     })
     return(
         
@@ -90,7 +90,7 @@ export function PostPage(){
 
             <div className="article-layout">
                 <main className="article-main">
-                    <Post id={post.id} user_id={post.user_id} title={post.title} content={post.content} created_at={post.created_at} />
+                    <Post id={post.id} username={post.username} title={post.title} content={post.content} created_at={post.created_at} />
                 </main>
 
                 <aside className="article-sidebar">

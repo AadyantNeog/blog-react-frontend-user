@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-export function Post({id,user_id,title,content,created_at}){
+export function Post({id,username,title,content,created_at}){
     const hasFullContent = content !== null;
 
     return(
@@ -7,7 +7,7 @@ export function Post({id,user_id,title,content,created_at}){
             <div className="post-kicker">Feature</div>
             <h2 className="post-title">{title}</h2>
             <div className="post-meta">
-                <span>By Contributor #{user_id}</span>
+                <span>By {username}</span>
                 <span>{new Date(created_at).toLocaleString()}</span>
             </div>
             {hasFullContent ? <p className="post-body">{content}</p> : null}

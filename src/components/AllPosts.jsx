@@ -36,7 +36,7 @@ export function AllPosts() {
         return <div className="status-panel">Unable to load the front page.</div>
     }
     const posts = data.map((p) => {
-        return <Post key={p.id} id={p.id} user_id={p.user_id} title={p.title} content={null} created_at={p.created_at}/>
+        return <Post key={p.id} id={p.id} username={p.username} title={p.title} content={null} created_at={p.created_at}/>
     })
     return(
         <div className='AllPosts page-shell'>
