@@ -11,6 +11,7 @@ export function PostPage(){
 
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState(null);
+    const [notFound, setNotFound] = useState(false);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);   
     
@@ -20,6 +21,8 @@ export function PostPage(){
         const fetchData = async () => {
             try {
                 setLoading(true);
+                setError(null);
+                setNotFound(false);
 
                 const [postRes, commentsRes] = await Promise.all([
                     fetch(`http://localhost:3000/posts/${postid}`, { signal: controller.signal }),
@@ -32,8 +35,16 @@ export function PostPage(){
 
                 const postData = await postRes.json();
                 const commentsData = await commentsRes.json();
+                const selectedPost = postData.post[0];
 
-                setPost(postData.post[0]);
+                if (!selectedPost) {
+                    setPost(null);
+                    setComments([]);
+                    setNotFound(true);
+                    return;
+                }
+
+                setPost(selectedPost);
                 setComments(commentsData.comments);
 
             } catch (err) {
@@ -56,8 +67,16 @@ export function PostPage(){
     if(error){
         return <p>Network Error</p>
     }
+    if(notFound){
+        return (
+            <div className="PostPage">
+                <Link to="/posts">Go back</Link>
+                <p>Post not found.</p>
+            </div>
+        )
+    }
     const allComments = comments.map((c) => {
-        return <Comment user_id={c.user_id} content={c.content} created_at={c.created_at} />
+        return <Comment key={c.id} user_id={c.user_id} content={c.content} created_at={c.created_at} />
     })
     return(
         

@@ -35,13 +35,13 @@ export function SignUpForm(){
 }
     return(
         <form onSubmit={handleSubmit} className="SignUpForm">
-            <label for="password">ENTER PASSWORD: </label>
+            <label htmlFor="password">ENTER PASSWORD: </label>
             <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br />
-            <label for="email">ENTER EMAIL: </label>
+            <label htmlFor="email">ENTER EMAIL: </label>
             <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <br />
-            <label for="username">ENTER USERNAME: </label>
+            <label htmlFor="username">ENTER USERNAME: </label>
             <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <button type="submit">SUBMIT</button>
         </form>
