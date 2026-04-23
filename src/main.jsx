@@ -6,6 +6,7 @@ import { PostPage } from './components/PostPage.jsx';
 import { SignUpForm } from './components/SignUpForm.jsx';
 import { LoginForm } from './components/LoginForm.jsx';
 import { PostForm } from './components/PostForm.jsx';
+import { ProfilePage } from './components/ProfilePage.jsx';
 import './styles.css';
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/posts/:postid",
     element: <PostPage />
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />
   },
   {
     path: "/signup",

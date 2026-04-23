@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { clearSession } from "../utils/auth";
 export function LoginForm(){
     const [password,setPassword] = useState("")
     const [email,setEmail] = useState("")
@@ -19,6 +20,7 @@ export function LoginForm(){
         })
         const data = await response.json();
         if(data.success){
+            clearSession();
             localStorage.setItem("token", data.token);
             navigate("/posts", { replace: true });
         }
@@ -26,20 +28,21 @@ export function LoginForm(){
     return(
         <div className="LoginForm auth-page page-shell">
             <header className="masthead compact">
-                <div className="eyebrow">Morning Briefing</div>
-                <h1 className="masthead-title">Sign In to the News Desk</h1>
+                <div className="eyebrow">Member Login</div>
+                <h1 className="masthead-title">The React Forum</h1>
                 <div className="masthead-meta">
-                    <span>Access today's posts and discussions</span>
+                    <span>Sign in to your account</span>
+                    <span>Access posts, comments, and likes</span>
                 </div>
             </header>
 
             <form onSubmit={handleSubmit} className="auth-form">
-                <div className="form-heading">Edition Access</div>
+                <div className="form-heading">Account Access</div>
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <button type="submit">Enter newsroom</button>
+                <button type="submit">Sign in</button>
             </form>
             <p className="auth-link-row">
                 New here? <Link className="inline-link" to="/signup">Create an account</Link>

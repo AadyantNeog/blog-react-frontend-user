@@ -79,6 +79,11 @@ textarea {
     text-align: left;
 }
 
+.masthead-top {
+    position: relative;
+    min-height: 46px;
+}
+
 .eyebrow,
 .section-label,
 .post-kicker,
@@ -121,6 +126,82 @@ button {
     padding-top: 0.85rem;
     border-top: 1px solid var(--ink);
     font-size: 0.72rem;
+}
+
+.session-nav,
+.header-actions,
+.page-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.session-nav {
+    width: 100%;
+}
+
+.session-nav-masthead {
+    position: absolute;
+    inset: 0 0 auto;
+    justify-content: center;
+}
+
+.session-nav-inline {
+    width: auto;
+    justify-content: flex-end;
+}
+
+.session-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.header-actions {
+    justify-content: flex-end;
+}
+
+.session-nav-masthead .session-links {
+    margin: 0 auto;
+}
+
+.session-nav-masthead > .session-link-button,
+.session-nav-masthead > .session-nav-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.session-nav-inline > .session-link-button,
+.session-nav-inline > .session-nav-link {
+    margin-left: 1.5rem;
+}
+
+.page-actions {
+    margin-bottom: 1rem;
+}
+
+.session-link-button {
+    min-height: 42px;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: none;
+}
+
+.session-link-button:hover:not(:disabled) {
+    background: var(--accent);
+    color: var(--paper);
+}
+
+.session-nav-link.active {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
 }
 
 .section-bar,
@@ -172,24 +253,26 @@ button:disabled {
 
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     border-top: 1px solid var(--ink);
-    border-left: 1px solid var(--ink);
 }
 
 .post {
     min-width: 0;
-    border-right: 1px solid var(--ink);
     border-bottom: 1px solid var(--ink);
-    padding: 1rem;
+    padding: 1.25rem 0;
     background: rgba(249, 249, 247, 0.92);
 }
 
 .post-preview {
-    grid-column: span 4;
-    min-height: 320px;
+    grid-column: auto;
+    min-height: auto;
     display: flex;
     flex-direction: column;
+    margin: 1rem 0 0;
+    padding: 1.25rem;
+    border: 1px solid var(--ink);
+    box-shadow: 4px 4px 0 0 rgba(17, 17, 17, 0.08);
 }
 
 .post-full {
@@ -227,6 +310,39 @@ button:disabled {
     margin: 1rem 0 0;
     font-size: 1.05rem;
     line-height: 1.8;
+}
+
+.engagement-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.like-button {
+    min-height: auto;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+}
+
+.like-button:hover:not(:disabled) {
+    background: var(--accent);
+    color: var(--paper);
+}
+
+.like-button.liked {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.like-count {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .inline-link {
@@ -333,10 +449,6 @@ textarea:focus {
 }
 
 @media (max-width: 980px) {
-    .post-preview {
-        grid-column: span 6;
-    }
-
     .article-layout {
         grid-template-columns: 1fr;
     }
@@ -368,13 +480,24 @@ textarea:focus {
         flex-direction: column;
     }
 
-    .posts-grid {
-        grid-template-columns: 1fr;
+    .masthead-top {
+        min-height: auto;
     }
 
-    .post-preview {
-        grid-column: auto;
-        min-height: auto;
+    .header-actions {
+        justify-content: flex-start;
+    }
+
+    .session-nav-masthead {
+        position: static;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .session-nav-masthead > .session-link-button,
+    .session-nav-masthead > .session-nav-link {
+        position: static;
     }
 
     .post {

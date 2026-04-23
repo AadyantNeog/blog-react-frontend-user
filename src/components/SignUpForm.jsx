@@ -36,15 +36,16 @@ export function SignUpForm(){
     return(
         <div className="auth-page page-shell">
             <header className="masthead compact">
-                <div className="eyebrow">Subscriber Services</div>
-                <h1 className="masthead-title">Open a New Account</h1>
+                <div className="eyebrow">Join The Community</div>
+                <h1 className="masthead-title">The React Forum</h1>
                 <div className="masthead-meta">
-                    <span>Create your reader profile</span>
+                    <span>Create a new account</span>
+                    <span>Create your profile and start posting</span>
                 </div>
             </header>
 
             <form onSubmit={handleSubmit} className="SignUpForm auth-form">
-                <div className="form-heading">Registration Form</div>
+                <div className="form-heading">Sign Up</div>
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <label htmlFor="email">Email</label>

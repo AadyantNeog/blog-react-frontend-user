@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { SessionNav } from "./SessionNav";
 
 export function PostForm() {
     const [title, setTitle] = useState("");
@@ -45,16 +46,23 @@ export function PostForm() {
     return (
         <div className="post-form-page page-shell">
             <header className="masthead compact">
-                <div className="eyebrow">Editorial Desk</div>
-                <h1 className="masthead-title">File a New Story</h1>
+                <div className="masthead-top">
+                    <SessionNav />
+                </div>
+                <div className="eyebrow">Create Post</div>
+                <h1 className="masthead-title">Share Something New</h1>
                 <div className="masthead-meta">
-                    <span>Draft a headline and publish it to the front page</span>
+                    <span>Write a title and share your post with the community</span>
                 </div>
             </header>
 
+            <div className="page-actions">
+                <Link className="inline-link" to="/posts">Back to all posts</Link>
+            </div>
+
             <form onSubmit={handleSubmit} className="PostForm auth-form">
-                <div className="form-heading">Story Submission</div>
-                <label htmlFor="title">Headline</label>
+                <div className="form-heading">New Post</div>
+                <label htmlFor="title">Title</label>
                 <input
                     id="title"
                     type="text"
@@ -63,7 +71,7 @@ export function PostForm() {
                     required
                 />
 
-                <label htmlFor="content">Article body</label>
+                <label htmlFor="content">Post content</label>
                 <textarea
                     id="content"
                     value={content}
@@ -72,7 +80,7 @@ export function PostForm() {
                 />
 
                 <button type="submit" disabled={loading}>
-                    {loading ? "Sending to print..." : "Publish story"}
+                    {loading ? "Posting..." : "Publish post"}
                 </button>
             </form>
         </div>
